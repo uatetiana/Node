@@ -48,7 +48,7 @@ function sortString(string) {
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr.length; j++) {
         for (let k = 0; k < arr[j].length; k++) {
-          if (+arr[j][k] === i+1) {
+          if (+arr[j][k] === i + 1) {
             sorted[i] = arr[j];
           }
         }
@@ -81,3 +81,48 @@ sortString("Fo1r the2 g3ood 4of th5e pe6ople")
 // If the game was terminated by the referee for insufficient number of players, you are to stop the game immediately, and ignore any further possible cards.
 //
 // If a player that has already been sent off receives another card - ignore it.
+
+function menStillStanding(array) {
+  let team = [11, 11];
+  let objA = {};
+  let objB = {};
+
+  if (array.length !== 0) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].search('A') !== -1) {
+        objA[array[i]] = 0;
+        for (let j = 0; j < array.length; j++) {
+          if (objA[array[i]] === objA[array[j]]) {
+            objA[array[i]]++;
+          }
+        }
+      } else if (array[i].search('B') !== -1) {
+        objB[array[i]] = 0;
+        for (let j = 0; j < array.length; j++) {
+          if (objB[array[i]] === objB[array[j]]) {
+            objB[array[i]]++;
+          }
+        }
+      }
+    }
+  }
+  
+  function board(obj, team) {
+    for (const objElement in obj) {
+      if (objElement.search('Y') !== -1 && obj[objElement] === 2 ) {
+        team--;
+      } else {
+        if (objElement.search('R') !== -1) {
+          team--;
+        }
+      }
+    }
+    return team;
+  }
+
+  const res = [objA, objB].map((el, index)=> board(el, team[index]));
+  console.log(res);
+  return res;
+}
+
+menStillStanding(['A4R', 'A5R', 'A7R', 'A9R', 'A10R'])
