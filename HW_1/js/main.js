@@ -106,7 +106,7 @@ function menStillStanding(array) {
       }
     }
   }
-  
+
   function board(obj, team) {
     for (const objElement in obj) {
       if (objElement.search('Y') !== -1 && obj[objElement] === 2 ) {
