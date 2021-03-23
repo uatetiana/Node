@@ -1,84 +1,94 @@
-// function myConcat(...rest) {
-//
-//   let string = '';
-//
-//   if (arguments) {
-//     for (let i = 0; i < arguments.length; i++) {
-//       string += arguments[i];
-//     }
-//   } else {
-//     console.log(string);
-//     return string;
-//   }
-//   console.log(string);
-//   return string;
-// }
-//
-// myConcat('Кевин', ', удачного дня.');
-// myConcat('');
+//task1
+function myConcat(...rest) {
 
-// function myIncludes(string, searchValue, fromIndex = 0) {
-//   let isFound = false;
-//   let str = '';
-//
-//   for (let k = fromIndex; k < string.length; k++) {
-//     str += string[k];
-//     if (str.length === searchValue.length) {
-//       console.log(str);
-//       if (str === searchValue) {
-//         console.log(str);
-//         isFound = true;
-//       }
-//       str = '';
-//       k = k - searchValue.length + 1;
-//     }
-//   }
-//   console.log(isFound);
-//   return isFound;
-// }
-//
-// myIncludes('синий', 'с');
+  let string = '';
 
-// function myLastIndex(string, searchValue, fromIndex = 0) {
-//   let isFound = false;
-//   let str = '';
-//   let index = -1;
-//
-//   for (let k = fromIndex; k < string.length; k++) {
-//     str += string[k];
-//
-//     if (str.length === searchValue.length) {
-//
-//       if (str === searchValue) {
-//         console.log(str);
-//         index = k - searchValue.length + 1;
-//         isFound = true;
-//       }
-//       str = '';
-//       k = k - searchValue.length + 1;
-//     }
-//   }
-//   console.log(index);
-//   return index;
-// }
-//
-// myLastIndex('cиний кит', 'cиний кит')
-//
-// function myRepeat(string, count = 0) {
-//   let str = '';
-//   if (count >= 0) {
-//     for (let i = 0; i < count; i++) {
-//       str += string;
-//     }
-//   } else {
-//     throw new Error('Range Error');
-//   }
-//   console.log(str);
-//   return str;
-// }
-//
-// myRepeat('белка', 1);
-// myRepeat('белка', 3);
+  if (arguments) {
+    for (let i = 0; i < arguments.length; i++) {
+      string += arguments[i];
+    }
+  } else {
+    console.log(string);
+    return string;
+  }
+  console.log(string);
+  return string;
+}
+
+myConcat('Кевин', ', удачного дня.');
+myConcat('');
+
+
+//task2
+
+function myLastIndex(string, searchValue, fromIndex = 0) {
+  let isFound = false;
+  let str = '';
+  let index = -1;
+
+  for (let k = fromIndex; k < string.length; k++) {
+    str += string[k];
+
+    if (str.length === searchValue.length) {
+
+      if (str === searchValue) {
+        console.log(str);
+        index = k - searchValue.length + 1;
+        isFound = true;
+      }
+      str = '';
+      k = k - searchValue.length + 1;
+    }
+  }
+  console.log(index);
+  return index;
+}
+
+myLastIndex('cиний кит', 'cиний кит');
+
+
+//task3
+function myIncludes(string, searchValue, fromIndex = 0) {
+  let isFound = false;
+  let str = '';
+
+  for (let k = fromIndex; k < string.length; k++) {
+    str += string[k];
+    if (str.length === searchValue.length) {
+
+      if (str === searchValue) {
+
+        isFound = true;
+      }
+      str = '';
+      k = k - searchValue.length + 1;
+    }
+  }
+  console.log(isFound);
+  return isFound;
+}
+
+myIncludes('синий', 'с');
+
+//task4
+
+function myRepeat(string, count = 0) {
+  let str = '';
+  if (count >= 0) {
+    for (let i = 0; i < count; i++) {
+      str += string;
+    }
+  } else {
+    throw new Error('Range Error');
+  }
+  console.log(str);
+  return str;
+}
+
+myRepeat('белка', 1);
+myRepeat('белка', 3);
+
+//task5
 
 function mySubstr(string, start, strLength) {
   let str = '';
@@ -88,19 +98,14 @@ function mySubstr(string, start, strLength) {
     }
     strLength = start + strLength - 1;
   }
-
-
   if (strLength === undefined) {
     strLength = string.length;
   } else {
     strLength = strLength + 1;
   }
-
   for (let i = start; i < strLength; i++) {
-
     str += string[i];
   }
-
   console.log(str);
   return str;
 }
@@ -111,24 +116,21 @@ mySubstr('абвгдеёжзи', 1, 2);
 mySubstr('абвгдеёжзи', -3, 2);
 mySubstr('абвгдеёжзи', -20, 2);
 
+// task6
 
 function mySubstring(string, start, strLength) {
   let str = '';
-
   if (strLength === undefined) {
     strLength = string.length;
   }
-
   if (start > strLength) {
     let tmp  = start;
     start = strLength;
     strLength = tmp;
   }
   for (let i = start; i < strLength; i++) {
-
     str += string[i];
   }
-
   console.log(str);
   return str;
 }
