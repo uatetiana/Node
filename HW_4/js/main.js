@@ -43,3 +43,28 @@ function meeting(s) {
   return str;
 }
 meeting(s);
+
+
+function meeting2(roomArr, need) {
+
+  let acc = 0;
+  let res = [];
+  let length = roomArr.length;
+  for (let i = 0; i < length; i++) {
+    for (let j = 1; j < roomArr[i].length; j++) {
+      acc =  roomArr[i][j] - roomArr[i][j - 1].length ;
+      console.log(acc);
+      res.push(acc);
+    }
+  }
+  console.log(res)
+  return res;
+}
+meeting2([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9]], 4)
+//---> [0, 1, 3]
+
+// meeting2([['XXX', 1], ['XXXXXX', 6], ['X', 2], ['XXXXXX', 8], ['X', 3], ['XXX', 1]], 5)
+// //---> [0, 0, 1, 2, 2]
+//
+// meeting2([['XX', 2], ['XXXX', 6], ['XXXXX', 4]], 0)
+// //---> 'Game On'
