@@ -49,13 +49,28 @@ function meeting2(roomArr, need) {
   if (need !== 0) {
     let acc = 0;
     let res = [];
+    let sum = 0;
+    let isEnough = false;
     let length = roomArr.length;
     for (let i = 0; i < length; i++) {
       for (let j = 1; j < roomArr[i].length; j++) {
         acc =  roomArr[i][j] - roomArr[i][j - 1].length ;
-        console.log(acc);
-        res.push(acc);
-
+        if (acc > 0) {
+          console.log(acc);
+          res.push(acc);
+          sum += acc;
+        } else {
+          acc = 0;
+          sum += acc;
+          res.push(acc);
+        }
+        if (need === sum) {
+          isEnough = true;
+          break;
+        }
+      }
+      if (isEnough) {
+        break;
       }
     }
     console.log(res)
