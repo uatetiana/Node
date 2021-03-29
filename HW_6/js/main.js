@@ -1,5 +1,16 @@
 function game() {
-  let board = getBoard();
+  let board = [[], [], []];
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      board[row][col] = getCell();
+    }
+  }
+  let cell = "";
+
+  while (cell != "0" && cell != "1" && cell != "2") {
+    cell = prompt("Enter the cell data");
+  }
+
   let player1 = checkVictory(board, 1),
     player2 = checkVictory(board, 2);
   switch (true) {
@@ -20,23 +31,6 @@ function game() {
       break;
     }
   }
-}
-
-function getCell(cell = "") {
-  while (cell != "0" && cell != "1" && cell != "2") {
-    cell = prompt("Enter the cell data");
-  }
-  return cell;
-}
-
-function getBoard() {
-  let board = [[], [], []];
-  for (let row = 0; row < 3; row++) {
-    for (let col = 0; col < 3; col++) {
-      board[row][col] = getCell();
-    }
-  }
-  return board;
 }
 
 function checkRows(board, player) {
