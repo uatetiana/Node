@@ -1,22 +1,22 @@
-function gameMain() {
+function game() {
   let board = getBoard();
   let player1 = checkVictory(board, 1),
     player2 = checkVictory(board, 2);
   switch (true) {
     case player1: {
-      alert(1);
+      return 1;
       break;
     }
     case player2: {
-      alert(2);
+      return 2;
       break;
     }
     case !(player1 || player2) && checkZeroes(board): {
-      alert(-1);
+      return -1;
       break;
     }
     default: {
-      alert(0);
+      return 0;
       break;
     }
   }
@@ -83,4 +83,4 @@ function checkZeroes(board) {
   );
 }
 
-gameMain();
+game();
